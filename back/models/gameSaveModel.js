@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const gameSaveSchema = new mongoose.Schema(
     {
         user_id:{
-            type : Int,
+            type : String,
             required : [true, 'Name is required'],
             trim : true,
         },
@@ -12,7 +12,7 @@ const gameSaveSchema = new mongoose.Schema(
             trim : true,
         },
         reputationScore: {
-            type : Int,
+            type : String,
             trim : true,
         },
         unlockedEndings :[
@@ -27,4 +27,4 @@ const gameSaveSchema = new mongoose.Schema(
 )
 
 
-module.exports = mongoose.model(gameSaveSchema)
+module.exports = mongoose.model('gameSave',gameSaveSchema)

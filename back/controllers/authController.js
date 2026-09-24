@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken')
 const User = require('../models/userModel')
+const GameSave = require('../models/gameSaveModel')
 const validator = require('validator')
 
 
@@ -93,45 +94,26 @@ const login = async (req, res) => {
 const getProfile = async (req, res) => {
     try {
        
-        const { name, password } = req.body
         // utilisateur déjà authentifié (middleware)
         const user = await User.findById(req.user._id)
+
 
         if (!user) {
             return res.status(404).json({ message: 'user not found' })
         }
 
-        if (name) {
-            user.name = name
-        }
+        const save = await GameSave.findOne({ user })
 
-        if (password) {
-            const isPasswordOK = validator.isStrongPassword(password, {
-                minLength: 6,
-                minLowercase: 1,
-                minUppercase: 1,
-                minNumbers: 1,
-                minSymbols: 1
-            })
-
-            if (!isPasswordOK) {
-                return res.status(400).json({ message: 'le mdp doit contenir... (tout le tralala)' })
-            }
-
-            user.password = password // sera hashé automatiquement par le hook pre('save')
-        }
-
-        // note : email et role ne sont pas modifiables ici
-
-        await user.save()
 
         res.status(200).json({
-            message: 'profile updated successfully',
+            message: 'profile loaded successfully',
             user: {
                 id: user._id,
                 name: user.name,
                 email: user.email,
-                role: user.role,
+                storyNode: save.progress,
+                endings: save.unlockedEndings,
+                reputation: save.reputationScore
             }
         })
 

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const StoryNode = new mongoose.Schema(
+const StoryNodeSchema = new mongoose.Schema(
     {
         node_id:{
             type : Int,
@@ -50,4 +50,4 @@ const StoryNode = new mongoose.Schema(
 )
 
 
-module.exports = mongoose.model('StoryNode')
+module.exports = mongoose.model('StoryNode',StoryNodeSchema)
