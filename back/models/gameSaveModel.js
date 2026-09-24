@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const GameSave = new mongoose.Schema(
+const gameSaveSchema = new mongoose.Schema(
     {
         user_id:{
             type : Int,
@@ -27,4 +27,4 @@ const GameSave = new mongoose.Schema(
 )
 
 
-module.exports = mongoose.model('GameSave')
+module.exports = mongoose.model(gameSaveSchema)
