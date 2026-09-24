@@ -1,9 +1,8 @@
 const mongoose = require('mongoose')
-const bcrypt = require ('bcryptjs')
 
-const userSchema = new mongoose.Schema(
+const GameSave = new mongoose.Schema(
     {
-        userId:{
+        user_id:{
             type : Int,
             required : [true, 'Name is required'],
             trim : true,
@@ -17,11 +16,10 @@ const userSchema = new mongoose.Schema(
             trim : true,
         },
         unlockedEndings :[
-            "héros reconnu",
-            "héros anonyme",
-            "nouveau criminel"
+            "Recognized hero",
+            "Anonymous hero",
+            "New criminal"
         ],
-
     },
     {
         timestamps:true
