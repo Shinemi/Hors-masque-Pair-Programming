@@ -64,8 +64,24 @@ const login = async (req, res) => {
             return res.status(400).json({ message: 'Invalid credentials'})
         }
 
-        const isMatch (email)
+         const isMatch = await user.comparePassword(password)
+        if(!isMatch){
+            return res.status(401).json({message: 'invalid credentials'})
+        }
 
+
+        const token = generateToken(user._id)
+
+        res.status(200).json({
+            message : 'Login succesful',
+            token,
+            user:{
+                id: user._id,
+                name: user.name,
+                email : user.email,
+                role : user.role,
+            }
+        })
 
 
     } catch (err) {
@@ -73,4 +89,15 @@ const login = async (req, res) => {
     }
 }
 
-module.exports = {register, login}
+
+const getProfile = async (req, res) => {
+    try {
+       
+
+
+    } catch (err) {
+        res.status(500).json({ message: 'Server error while getting profile information', error: err.message })
+    }
+}
+
+module.exports = {register, login, getProfile}
