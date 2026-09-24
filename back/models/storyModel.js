@@ -19,12 +19,11 @@ const StoryNodeSchema = new mongoose.Schema(
             required: [true, 'Need to select a choice'],
             trim: true,
         },
-        // backgroud: {
-        //     type: Image,
-        //     required: [true, ],
-            
-        //     trim: true,
-        // },
+        backgroud: {
+            type: String,
+            required: [true, ],
+            trim: true,
+        },
         reputation: {
             type: Int,
             trim: true,
