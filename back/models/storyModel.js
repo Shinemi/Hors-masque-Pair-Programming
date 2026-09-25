@@ -6,10 +6,6 @@ const StoryNodeSchema = new mongoose.Schema(
             type : Int,
             trim : true,
         },
-        character: {
-            type : String,
-            trim : true,
-        },
         text: {
             type : String,
             trim : true,
@@ -37,7 +33,7 @@ const StoryNodeSchema = new mongoose.Schema(
             type: Boolean,
             trim: true,
         },
-        Ending: {
+        Ending: { // a remodeler 
             type: Int,
             required: [true, 'Recognized hero', 'Anonymous hero', 'New criminal'],
             trim: true,

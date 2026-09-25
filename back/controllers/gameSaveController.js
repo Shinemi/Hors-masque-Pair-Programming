@@ -11,11 +11,11 @@ const saveGame = async (req, res) => {
         }
 
         const existingSave = await user_id.findOne( { progress })
-        if(progress){
+        if(existingSave){
             return res.status(200).json({message: 'Game loading successful'})
         }
 
-        const save = await GameSave.create({
+        const newGameSave = await GameSave.create({
             user_id,
             progress,
             reputationScore,
@@ -26,9 +26,9 @@ const saveGame = async (req, res) => {
             message: 'Game save succesfully',
             user: {
                 id: user._id,
-                progress: game.progress,
-                reputationScore: game.reputation,
-                unlockedEndings: game.ending
+                progress: newGameSave.progress,
+                reputationScore: newGameSave.reputation,
+                unlockedEndings: newGameSave.ending
             }
         })
 
