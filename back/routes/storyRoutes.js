@@ -4,6 +4,6 @@ const {} = require('../controllers/storyController')
 const authMiddleware = require('../middlewares/authMiddleware')
 
 
-// router.get('/story',StoryNode)
+router.get('/story',StoryNode)
 
 module.exports = router

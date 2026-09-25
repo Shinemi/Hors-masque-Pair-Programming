@@ -122,4 +122,33 @@ const getProfile = async (req, res) => {
     }
 }
 
-module.exports = {register, login, getProfile}
+const getGame = async (req, res) => {
+    try {
+        const { user_id, progress, reputationScore, unlockedEndings } = req.body
+
+        if(!user_id){
+            return res.status(400).json({message: 'User loading not found'})
+        }
+
+        const existingGameSaved = await User.findOne( { progress })
+
+        if(!existingGameSaved){
+            return res.status(400).json({message: 'No existing save in this account, please start a new game !'})
+        }
+
+        res.status(201).json({
+            message: 'Saved game successfully load',
+            user: {
+                id: user.user_id,
+                progress: GameSave.progress,
+                reputationScore: GameSave.reputation,
+                unlockedEndings: GameSave.ending
+            }
+        })
+
+    } catch (err) {
+        return res.status(500).json({message: 'Error while laoding the game', error: err.message})
+    }
+}
+
+module.exports = {register, login, getProfile, getGame}

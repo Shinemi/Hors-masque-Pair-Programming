@@ -38,13 +38,5 @@ const saveGame = async (req, res) => {
     }
 }
 
-// const getSave = async (req, res) => {
-//     try {
-//         const { user_id, progress, reputationScore, unlockedEndings } = req.body
 
-//     } catch (err) {
-//         return res.status(500).json({message: 'Error while laoding the game', error: err.message})
-//     }
-// }
-
-module.exports = { saveGame, getSave }
+module.exports = { saveGame}
