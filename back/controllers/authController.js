@@ -141,6 +141,7 @@ const getGame = async (req, res) => {
             user: {
                 id: user.user_id,
                 progress: GameSave.progress,
+                nodeName: GameSave.nodeName,
                 reputationScore: GameSave.reputation,
                 unlockedEndings: GameSave.ending
             }

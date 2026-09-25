@@ -29,6 +29,10 @@ const StoryNodeSchema = new mongoose.Schema(
             require: [true],
             trim: true,
         },
+        nodeName: {
+            type: String,
+            trim: true
+        },
         isEnding: {
             type: Boolean,
             trim: true,

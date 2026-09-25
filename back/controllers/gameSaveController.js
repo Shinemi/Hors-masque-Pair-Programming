@@ -17,6 +17,7 @@ const saveGame = async (req, res) => {
         const newGameSave = await GameSave.create({
             user_id,
             progress,
+            nodeName,
             reputationScore,
             unlockedEndings
         })
@@ -26,6 +27,7 @@ const saveGame = async (req, res) => {
             user: {
                 id: user._id,
                 progress: newGameSave.progress,
+                nodeName: newGameSave.nodeName,
                 reputationScore: newGameSave.reputation,
                 unlockedEndings: newGameSave.ending
             }
@@ -38,4 +40,4 @@ const saveGame = async (req, res) => {
 }
 
 
-module.exports = { saveGame}
+module.exports = { saveGame }
