@@ -10,3 +10,11 @@ mongoose.connect(dbURI)
 
     //si vous n'intégrez pas le code dans app.js, on fait l'export
 module.exports = mongoose.connection
+
+
+
+
+
+
+
+

@@ -1,6 +1,5 @@
 const User = require('../models/userModel')
 const GameSave = require('../models/gameSaveModel')
-const validator = require('validator')
 
 const saveGame = async (req, res) => {
     try {
@@ -10,10 +9,10 @@ const saveGame = async (req, res) => {
             return res.status(400).json({message: 'Loading save not found'})
         }
 
-        const existingSave = await user_id.findOne( { progress })
-        if(existingSave){
-            return res.status(200).json({message: 'Game loading successful'})
-        }
+        // const existingSave = await GameSave.findOne( { user_id })
+        // if(existingSave){
+        //     return res.status(200).json({message: 'Game loading successful'})
+        // }
 
         const newGameSave = await GameSave.create({
             user_id,

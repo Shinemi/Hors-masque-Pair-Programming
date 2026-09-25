@@ -43,11 +43,11 @@ app.use(express.json())
 
 // Routes
 const authRoutes = require('./routes/authRoutes')
-// const teamRoutes = require('./routes/teamRoutes')
+const gameRoutes = require('./routes/gameRoutes')
 // const tournamentRoutes = require('./routes/tournamentRoutes')
 
 app.use('/api/v1/auth', authRoutes)
-// app.use('/api/v1/team', teamRoutes)
+app.use('/api/v1/game', gameRoutes)
 // app.use('/api/v1/tournament', tournamentRoutes)
 
 

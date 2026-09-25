@@ -7,12 +7,13 @@ const gameSaveSchema = new mongoose.Schema(
             required : [true, 'Name is required'],
             trim : true,
         },
-        progress: {
+        storyNode_id: {
             type : String,
+            required : [true, 'Story node is required'],
             trim : true,
         },
         reputationScore: {
-            type : String,
+            type : Number,
             trim : true,
         },
         unlockedEndings :[

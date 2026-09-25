@@ -4,9 +4,8 @@ const { saveGame } = require('../controllers/gameSaveController')
 const authMiddleware = require('../middlewares/authMiddleware')
 
 
-router.get('/save', saveGame)
+router.post('/save', authMiddleware ,saveGame)
 
-router.get('/me', authMiddleware, getProfile)
 
 
 module.exports = router

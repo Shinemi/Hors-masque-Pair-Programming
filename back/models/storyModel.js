@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const StoryNodeSchema = new mongoose.Schema(
     {
         node_id:{
-            type : Int,
+            type : Number,
             trim : true,
         },
         text: {
@@ -21,11 +21,11 @@ const StoryNodeSchema = new mongoose.Schema(
             trim: true,
         },
         reputation: {
-            type: Int,
+            type: Number,
             trim: true,
         },
         nextNode: {
-            type: Int,
+            type: Number,
             require: [true],
             trim: true,
         },
@@ -34,7 +34,7 @@ const StoryNodeSchema = new mongoose.Schema(
             trim: true,
         },
         Ending: { // a remodeler 
-            type: Int,
+            type: Number,
             required: [true, 'Recognized hero', 'Anonymous hero', 'New criminal'],
             trim: true,
         }
